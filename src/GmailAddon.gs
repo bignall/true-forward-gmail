@@ -8,6 +8,9 @@
  * Builds the sidebar card shown when viewing a message.
  */
 function onGmailMessage(e) {
+  // Opportunistically process label rules if it's been 15+ min since last run
+  maybeProcessRules();
+
   const messageId = e.gmail && e.gmail.messageId;
   const accessToken = e.gmail && e.gmail.accessToken;
   const presets = getPresets();

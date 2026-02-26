@@ -18,7 +18,7 @@ True Forward solves this by composing a brand new email *from your address* with
 | **One-click forward** | Click a preset button in the Gmail sidebar to forward instantly |
 | **Custom address** | Type any address in the sidebar without saving it as a preset |
 | **Preset destinations** | Save frequently used addresses (e.g. `receipts@quickbooks.com`) |
-| **Label-based auto-forward** | Apply a Gmail label → email gets forwarded automatically every 5 min |
+| **Label-based auto-forward** | Apply a Gmail label → email gets forwarded automatically every hour |
 | **Per-rule destinations** | Each label rule can forward to a different address |
 | **Pause/resume rules** | Disable a rule without deleting it |
 | **Audit log** | Every forward is logged to a Google Sheet |
@@ -73,7 +73,7 @@ Open any email in Gmail. You'll see a **True Forward** panel in the right sideba
 1. In Gmail, create a label — e.g. `TrueForward/receipts`
 2. In True Forward Settings, add a rule: label `TrueForward/receipts` → `receipts@quickbooks.com`
 3. Gmail's built-in filters can now auto-apply that label to matching emails
-4. Every 5 minutes, True Forward checks for unlabeled emails, forwards them, and moves them to `TrueForward/receipts/sent`
+4. Every hour, True Forward checks for labeled emails, forwards them, and moves them to `TrueForward/receipts/sent`
 
 > **Tip:** Combine with Gmail Filters (Settings → Filters and Blocked Addresses) to automatically label emails from specific senders or with specific subjects.
 
@@ -118,7 +118,7 @@ True Forward is designed for low-volume use (a few emails per day). If you need 
 PRs welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 Some ideas for future enhancements:
-- Configurable check interval (currently 5 min)
+- Configurable check interval (currently 1 hour; add-on minimum)
 - Support for forwarding to multiple addresses from one rule
 - A "forward and label" option (keep original label, add a done marker)
 - Per-preset custom subject prefix

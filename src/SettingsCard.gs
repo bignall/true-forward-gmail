@@ -92,7 +92,7 @@ function buildLabelRulesDescriptionSection() {
     .setCollapsible(true)
     .addWidget(
       CardService.newTextParagraph().setText(
-        'Apply a Gmail label to any email. True Forward will forward it automatically every 5 minutes.\n' +
+        'Apply a Gmail label to any email. True Forward will forward it automatically every hour.\n' +
         'Processed emails are archived under the label with a "/sent" suffix.'
       )
     );
@@ -112,15 +112,10 @@ function buildLabelRulesSection() {
   }
 
   rules.forEach(rule => {
-    const statusIcon = rule.enabled
-      ? 'https://www.gstatic.com/images/icons/material/system/1x/check_circle_green800_20dp.png'
-      : 'https://www.gstatic.com/images/icons/material/system/1x/cancel_red800_20dp.png';
-
     const row = CardService.newDecoratedText()
       .setTopLabel('Label: ' + rule.labelName)
       .setText('→ ' + rule.address)
-      .setBottomLabel(rule.enabled ? 'Active' : 'Paused')
-      .setStartIcon(CardService.newIconImage().setIconUrl(statusIcon).setAltText(rule.enabled ? 'active' : 'paused'))
+      .setBottomLabel(rule.enabled ? '● Active' : '○ Paused')
       .setButton(
         CardService.newImageButton()
           .setIconUrl('https://www.gstatic.com/images/icons/material/system/1x/delete_grey600_20dp.png')

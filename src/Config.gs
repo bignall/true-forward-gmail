@@ -7,6 +7,7 @@ const CONFIG_KEY_PREFIX   = 'tf_';
 const PRESETS_KEY         = 'tf_presets';      // JSON array of { name, address }
 const LABEL_RULES_KEY     = 'tf_label_rules';  // JSON array of { labelName, address, enabled }
 const TRIGGER_ID_KEY      = 'tf_triggerId';
+const LAST_RUN_KEY        = 'tf_lastRun';       // timestamp of last processLabelRules run
 
 // ── Generic get/set ──────────────────────────────────────────────────────────
 
@@ -102,8 +103,12 @@ function addLabelRule(labelName, address) {
   rules.push({ labelName: labelName.trim(), address: address.trim().toLowerCase(), enabled: true });
   saveLabelRules(rules);
 
-  // Ensure the background trigger is running
-  ensureTimeTrigger();
+  // Ensure the background trigger is running (don't let trigger errors block the rule save)
+  try {
+    ensureTimeTrigger();
+  } catch (e) {
+    console.warn('ensureTimeTrigger failed:', e.message);
+  }
 
   return rules;
 }
@@ -111,6 +116,8 @@ function addLabelRule(labelName, address) {
 function removeLabelRule(labelName) {
   const rules = getLabelRules().filter(r => r.labelName.toLowerCase() !== labelName.toLowerCase());
   saveLabelRules(rules);
+  // Force PropertiesService to flush by reading back immediately
+  PropertiesService.getUserProperties().getProperty(LABEL_RULES_KEY);
   if (rules.length === 0) removeTimeTrigger(); // Clean up trigger if no rules left
   return rules;
 }
@@ -126,7 +133,8 @@ function toggleLabelRule(labelName, enabled) {
 // ── Trigger Management ───────────────────────────────────────────────────────
 
 /**
- * Creates a time-based trigger (every 5 minutes) if one doesn't exist.
+ * Creates a time-based trigger (every hour) if one doesn't exist.
+ * Add-ons require a minimum 1-hour recurrence for time-based triggers.
  */
 function ensureTimeTrigger() {
   const existingId = PropertiesService.getUserProperties().getProperty(TRIGGER_ID_KEY);
@@ -138,7 +146,7 @@ function ensureTimeTrigger() {
 
   const trigger = ScriptApp.newTrigger('processLabelRules')
     .timeBased()
-    .everyMinutes(5)
+    .everyHours(1)
     .create();
 
   PropertiesService.getUserProperties().setProperty(TRIGGER_ID_KEY, trigger.getUniqueId());

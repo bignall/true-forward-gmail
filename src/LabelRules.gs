@@ -1,6 +1,6 @@
 // =============================================================================
 // TrueForward - Automatic Label Rule Processor
-// Runs every 5 minutes via a time-based trigger.
+// Runs every hour via a time-based trigger.
 // For each enabled rule: finds emails with that label, forwards them,
 // then moves them to a "sent" sub-label.
 // =============================================================================
@@ -44,8 +44,34 @@ function processLabelRules() {
     if (totalProcessed > 0 || totalFailed > 0) {
       console.log(`processLabelRules: forwarded ${totalProcessed}, failed ${totalFailed}`);
     }
+
+    // Record last successful run time
+    PropertiesService.getUserProperties().setProperty(LAST_RUN_KEY, String(Date.now()));
   } finally {
     lock.releaseLock();
+  }
+}
+
+/**
+ * Opportunistically run rules if enough time has passed since last run.
+ * Called from onGmailMessage to supplement the hourly trigger.
+ * Uses a 15-minute cooldown to avoid running too frequently.
+ */
+function maybeProcessRules() {
+  try {
+    const rules = getLabelRules().filter(r => r.enabled);
+    if (rules.length === 0) return;
+
+    const lastRun = PropertiesService.getUserProperties().getProperty(LAST_RUN_KEY);
+    const elapsed = lastRun ? Date.now() - Number(lastRun) : Infinity;
+    const COOLDOWN_MS = 15 * 60 * 1000; // 15 minutes
+
+    if (elapsed >= COOLDOWN_MS) {
+      processLabelRules();
+    }
+  } catch (e) {
+    // Never let this fail the sidebar UI
+    console.warn('maybeProcessRules:', e.message);
   }
 }
 
