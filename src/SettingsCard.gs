@@ -102,7 +102,8 @@ function buildLabelRulesSection() {
   const rules = getLabelRules();
   const section = CardService.newCardSection()
     .setHeader('Auto-Forward Rules (Label-based)')
-    .setCollapsible(false);
+    .setCollapsible(true)
+    .setNumUncollapsibleWidgets(rules.length > 0 ? rules.length * 2 + 2 : 1);
 
   if (rules.length === 0) {
     section.addWidget(
@@ -113,7 +114,7 @@ function buildLabelRulesSection() {
 
   rules.forEach(rule => {
     const row = CardService.newDecoratedText()
-      .setTopLabel('Label: ' + rule.labelName)
+      .setTopLabel('<b>▸ Label:</b> ' + rule.labelName)
       .setText('→ ' + rule.address)
       .setBottomLabel(rule.enabled ? '● Active' : '○ Paused')
       .setButton(
