@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy – True Forward</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 780px;
+      margin: 40px auto;
+      padding: 0 24px 80px;
+      color: #222;
+      line-height: 1.7;
+    }
+    h1 { font-size: 2rem; margin-bottom: 4px; }
+    h2 { font-size: 1.2rem; margin-top: 2rem; border-bottom: 1px solid #eee; padding-bottom: 4px; }
+    .meta { color: #666; font-size: 0.9rem; margin-bottom: 2rem; }
+    a { color: #1a73e8; }
+    ul { padding-left: 1.4rem; }
+    li { margin-bottom: 6px; }
+    .scope-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    .scope-table th, .scope-table td { text-align: left; padding: 8px 12px; border: 1px solid #ddd; }
+    .scope-table th { background: #f5f5f5; }
+    footer { margin-top: 4rem; font-size: 0.85rem; color: #888; border-top: 1px solid #eee; padding-top: 1rem; }
+  </style>
+</head>
+<body>
+
+  <h1>Privacy Policy</h1>
+  <p class="meta">
+    Application: <strong>True Forward</strong> &nbsp;|&nbsp;
+    Developer: <strong>RB Creative Solutions LLC</strong> &nbsp;|&nbsp;
+    Effective date: <strong>March 2, 2026</strong>
+  </p>
+
+  <h2>1. Overview</h2>
+  <p>
+    True Forward is a Gmail Add-on that forwards emails using your own email address as the sender,
+    rather than re-sending from the original sender's address. It is designed for use with services
+    such as QuickBooks that identify accounts by the sender's email address.
+  </p>
+  <p>
+    True Forward runs entirely within your Google Account using Google Apps Script.
+    <strong>RB Creative Solutions LLC does not operate any external servers, does not receive
+    your email content, and does not collect, store, or process any of your personal data.</strong>
+  </p>
+
+  <h2>2. Data Accessed</h2>
+  <p>True Forward accesses the following data within your Google Account:</p>
+  <ul>
+    <li><strong>Gmail messages</strong> — to read emails you have labeled for auto-forwarding and to send forwarded copies from your address.</li>
+    <li><strong>Gmail labels</strong> — to apply a "/sent" suffix label after a message is successfully forwarded and archived.</li>
+    <li><strong>Your email address</strong> — to identify you as the sender when forwarding messages.</li>
+    <li><strong>Google Sheets (optional)</strong> — if you have configured a log sheet ID in settings, activity logs are written to a spreadsheet in your own Google Drive.</li>
+  </ul>
+
+  <h2>3. Data Stored</h2>
+  <p>
+    True Forward stores your configuration (forward presets and auto-forward label rules) using
+    Google's <strong>PropertiesService</strong>, which stores data within your Google Account.
+    This data never leaves Google's infrastructure and is never transmitted to or accessed by
+    RB Creative Solutions LLC.
+  </p>
+  <p>No cookies, analytics, tracking pixels, or third-party SDKs are used by this add-on.</p>
+
+  <h2>4. Data Sharing</h2>
+  <p>
+    When True Forward forwards an email, it sends that email to the address(es) you have specified
+    in your forwarding rules. This is the core function of the add-on and occurs only at your
+    explicit direction. No email content is shared with RB Creative Solutions LLC or any other party.
+  </p>
+
+  <h2>5. Google API Scopes Used</h2>
+  <p>True Forward requests the following OAuth scopes and uses each only as described:</p>
+  <table class="scope-table">
+    <thead>
+      <tr>
+        <th>Scope</th>
+        <th>Purpose</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>gmail.send</code></td>
+        <td>Send forwarded emails from your address.</td>
+      </tr>
+      <tr>
+        <td><code>gmail.modify</code></td>
+        <td>Read labeled emails, apply "/sent" labels, and archive processed messages.</td>
+      </tr>
+      <tr>
+        <td><code>gmail.addons.execute</code></td>
+        <td>Required by Google for all Gmail Add-ons to run in the sidebar.</td>
+      </tr>
+      <tr>
+        <td><code>script.scriptapp</code></td>
+        <td>Create and manage the hourly time-based trigger that processes your label rules automatically.</td>
+      </tr>
+      <tr>
+        <td><code>userinfo.email</code></td>
+        <td>Display your email address in the add-on and set it as the "From" address on forwarded emails.</td>
+      </tr>
+      <tr>
+        <td><code>spreadsheets</code></td>
+        <td>Write activity logs to a Google Sheet in your Drive, if you have configured a log sheet (optional).</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>
+    True Forward's use of Google user data adheres to the
+    <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank">
+      Google API Services User Data Policy</a>, including the Limited Use requirements.
+  </p>
+
+  <h2>6. Data Retention</h2>
+  <p>
+    Your forwarding configuration is retained in Google PropertiesService until you delete your
+    rules within the add-on or uninstall the add-on. Uninstalling the add-on from your Google
+    Account removes all associated stored properties. No data is retained by RB Creative Solutions LLC.
+  </p>
+
+  <h2>7. Children's Privacy</h2>
+  <p>
+    True Forward is not directed at children under 13. We do not knowingly collect personal
+    information from children.
+  </p>
+
+  <h2>8. Changes to This Policy</h2>
+  <p>
+    If this privacy policy changes materially, the updated policy will be posted at this URL with
+    a revised effective date. Continued use of True Forward after any changes constitutes
+    acceptance of the revised policy.
+  </p>
+
+  <h2>9. Contact</h2>
+  <p>
+    Questions or concerns about this privacy policy may be directed to:<br>
+    <strong>RB Creative Solutions LLC</strong><br>
+    <a href="mailto:privacy@rbcreativesolutions.net">privacy@rbcreativesolutions.net</a><br>
+    <a href="https://rbcreativesolutions.net" target="_blank">rbcreativesolutions.net</a>
+  </p>
+
+  <footer>
+    &copy; 2026 RB Creative Solutions LLC &nbsp;&middot;&nbsp;
+    <a href="https://rbcreativesolutions.net/projects/true-forward/">True Forward</a> &nbsp;&middot;&nbsp;
+    <a href="https://github.com/bignall/true-forward-gmail">GitHub</a>
+  </footer>
+
+</body>
+</html>
