@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Background: deep blue rounded square -->
+  <rect width="512" height="512" rx="88" fill="#1558D6"/>
+
+  <!-- Envelope body -->
+  <rect x="60" y="152" width="280" height="208" rx="16" fill="white"/>
+
+  <!-- Envelope flap (V crease) -->
+  <path d="M60 152 L200 268 L340 152" fill="none" stroke="#1558D6" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/>
+
+  <!-- Arrow shaft -->
+  <rect x="320" y="232" width="108" height="48" rx="24" fill="white"/>
+
+  <!-- Arrow head -->
+  <path d="M396 188 L460 256 L396 324 Z" fill="white"/>
+</svg>
