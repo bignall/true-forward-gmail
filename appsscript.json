@@ -13,7 +13,7 @@
   "addOns": {
     "common": {
       "name": "True Forward",
-      "logoUrl": "https://www.gstatic.com/images/icons/material/system/2x/forward_to_inbox_black_24dp.png",
+      "logoUrl": "https://bignall.github.io/true-forward-gmail/logo-128.png",
       "homepageTrigger": {
         "runFunction": "onHomepage"
       }
