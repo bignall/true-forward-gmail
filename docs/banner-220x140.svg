@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 140" width="220" height="140">
+  <!-- Background -->
+  <rect width="220" height="140" rx="8" fill="#1558D6"/>
+
+  <!-- Subtle grid texture overlay -->
+  <rect width="220" height="140" rx="8" fill="url(#grid)" opacity="0.06"/>
+  <defs>
+    <pattern id="grid" width="12" height="12" patternUnits="userSpaceOnUse">
+      <path d="M 12 0 L 0 0 0 12" fill="none" stroke="white" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+
+  <!-- Right side: icon motif (envelope + arrow) -->
+  <!-- Envelope body -->
+  <rect x="130" y="38" width="62" height="48" rx="4" fill="white" opacity="0.15"/>
+  <!-- Envelope flap V -->
+  <path d="M130 38 L161 62 L192 38" fill="none" stroke="white" stroke-width="2" stroke-opacity="0.3" stroke-linejoin="round"/>
+  <!-- Arrow shaft -->
+  <rect x="174" y="59" width="28" height="8" rx="4" fill="white" opacity="0.35"/>
+  <!-- Arrow head -->
+  <path d="M196 50 L212 63 L196 76 Z" fill="white" opacity="0.35"/>
+
+  <!-- App name -->
+  <text x="16" y="60" font-family="-apple-system, BlinkMacSystemFont, Arial, sans-serif"
+        font-weight="700" font-size="22" fill="white" letter-spacing="-0.3">True</text>
+  <text x="16" y="86" font-family="-apple-system, BlinkMacSystemFont, Arial, sans-serif"
+        font-weight="700" font-size="22" fill="white" letter-spacing="-0.3">Forward</text>
+
+  <!-- Tagline -->
+  <text x="16" y="112" font-family="-apple-system, BlinkMacSystemFont, Arial, sans-serif"
+        font-weight="400" font-size="9.5" fill="white" opacity="0.8" letter-spacing="0.2">
+    Forward email from your address
+  </text>
+
+  <!-- Bottom accent line -->
+  <rect x="16" y="122" width="40" height="2" rx="1" fill="white" opacity="0.4"/>
+</svg>
