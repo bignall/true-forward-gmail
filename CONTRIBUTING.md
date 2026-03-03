@@ -1,6 +1,6 @@
 # Contributing to True Forward
 
-Thanks for your interest in contributing! This project is a Google Apps Script Gmail add-on, so the development workflow is a bit different from typical Node/web projects.
+Thanks for your interest in contributing! This project is a Google Apps Script Gmail™ add-on, so the development workflow is a bit different from typical Node/web projects.
 
 ## Getting Started
 
@@ -8,7 +8,7 @@ Thanks for your interest in contributing! This project is a Google Apps Script G
 2. Create a new Apps Script project at [script.google.com](https://script.google.com)
 3. Copy each `.gs` file from `src/` into your Apps Script project
 4. Replace `appsscript.json` with the one from this repo
-5. Deploy as a test add-on (Deploy → Test deployments → Gmail Add-on → Install)
+5. Deploy as a test add-on (Deploy → Test deployments → Gmail™ Add-on → Install)
 
 ## Development Workflow
 
