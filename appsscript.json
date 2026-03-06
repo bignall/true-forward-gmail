@@ -13,7 +13,7 @@
   "addOns": {
     "common": {
       "name": "True Forward",
-      "logoUrl": "https://bignall.github.io/true-forward-gmail/logo-128.png",
+      "logoUrl": "https://trueforward.rbcreativesolutions.net/logo-128.png",
       "homepageTrigger": {
         "runFunction": "onHomepage"
       }

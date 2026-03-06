@@ -37,7 +37,8 @@ Use this when setting up for the first time or publishing.
 
 ## Notes for Publishing
 
-- You need a **privacy policy** URL. Even a simple one-pager hosted on GitHub Pages works.
+- Privacy policy: https://trueforward.rbcreativesolutions.net/privacy-policy.html
+- Terms of service: https://trueforward.rbcreativesolutions.net/terms-of-service.html
 - The app will be in "Testing" mode for up to 100 users before review.
 - During testing, users see an "unverified app" warning — this is normal.
 - After Google approval, the warning goes away.
